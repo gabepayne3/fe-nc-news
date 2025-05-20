@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById, getCommentsByArticleId } from "./api";
-
+import VoteButtons from "./VoteButton";
+import { voteOnArticle, voteOnComment } from "./api";
 function IndArticle () {
     
     const { id } = useParams();
@@ -39,13 +40,14 @@ function IndArticle () {
     if (loading) return <p>Loading article...</p>;
     if (error) return <p>{error}</p>;
     if (!article) return <p>Article not found.</p>;
-  
+  console.log(article.votes)
     return (
         <div>
         <h1>{article.title}</h1>
         <p>{article.body}</p>
-  
+        <VoteButtons itemId={article.article_id} initialVotes={article.votes} onVote={voteOnArticle}/>
         <hr />
+        
         <h2>Comments</h2>
   
         {commentsLoading && <p>Loading comments...</p>}
@@ -57,6 +59,11 @@ function IndArticle () {
               <p><strong>{comment.author}</strong> says:</p>
               <p>{comment.body}</p>
               <p><small>Votes: {comment.votes}</small></p>
+              <VoteButtons
+      itemId={comment.comment_id}
+      initialVotes={comment.votes}
+      onVote={voteOnComment}
+    />
               <hr />
             </li>
           ))}
