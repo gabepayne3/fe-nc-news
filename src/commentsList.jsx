@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import VoteButtons from "./VoteButton";
 import { voteOnComment, postComment } from "./api";
+import DeleteCommentButton from "./deleteComment";
 
 function CommentsList({ article_id, comments, setComments, loading, error, user }) {
   const [newComment, setNewComment] = useState("");
@@ -21,19 +22,23 @@ function CommentsList({ article_id, comments, setComments, loading, error, user 
     setPosting(true);
 
     postComment({ article_id, body: newComment, username: user.username })
-  .then((response) => {
-    const postedComment = response.comment; 
-    setComments((prev) => [postedComment, ...prev]);
-    setNewComment("");
-    setSuccessMsg("Great Success");
-  })
-  .catch((err) => {
-    setPostError("Mission Failed :(");
-    console.error(err);
-  })
-  .finally(() => {
-    setPosting(false);
-  });
+      .then((response) => {
+        const postedComment = response.comment;
+        setComments((prev) => [postedComment, ...prev]);
+        setNewComment("");
+        setSuccessMsg("Great Success");
+      })
+      .catch((err) => {
+        setPostError("Mission Failed :(");
+        console.error(err);
+      })
+      .finally(() => {
+        setPosting(false);
+      });
+  };
+
+  const handleDeleteSuccess = (commentId) => {
+    setComments((prev) => prev.filter((comment) => comment.comment_id !== commentId));
   };
 
   if (loading) return <p>Don't Go Anywhere...</p>;
@@ -71,6 +76,12 @@ function CommentsList({ article_id, comments, setComments, loading, error, user 
               initialVotes={comment.votes}
               onVote={voteOnComment}
             />
+            {user?.username === comment.author && (
+              <DeleteCommentButton
+                commentId={comment.comment_id}
+                onDeleteSuccess={handleDeleteSuccess}
+              />
+            )}
             <hr />
           </li>
         ))}

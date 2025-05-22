@@ -52,3 +52,7 @@ export const voteOnArticle = (article_id, incVotes) => {
     return gabesNewsApi.get("/users")
       .then((res) => res.data.users); 
   };
+
+  export const deleteComment = (comment_id) => {
+    return gabesNewsApi.delete(`/comments/${comment_id}`);
+  };
