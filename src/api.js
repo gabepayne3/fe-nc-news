@@ -56,3 +56,9 @@ export const voteOnArticle = (article_id, incVotes) => {
   export const deleteComment = (comment_id) => {
     return gabesNewsApi.delete(`/comments/${comment_id}`);
   };
+
+  export const getArticlesByTopic = (topicSlug) => {
+    return gabesNewsApi
+      .get(`/articles`, { params: { topic: topicSlug } })
+      .then((res) => res.data.articles);
+  };
