@@ -7,6 +7,7 @@ import Articles from "./Articles";
 import Topics from "./Topics";
 import IndArticle from "./IndArticle";
 import './App.css';
+import TopicArticles from "./articlesByTopic";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -37,6 +38,7 @@ function App() {
         <Route path="/articles" element={<Articles />} />
         <Route path="/login" element={<LogIn setUser={setUser} />} />
         <Route path="/articles/:id" element={<IndArticle user={user} />} />
+        <Route path="/topics/:slug" element={<TopicArticles />} />
       </Routes>
     </div>
   );
