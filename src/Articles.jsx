@@ -26,15 +26,18 @@ const Articles = () => {
         <div>
         <h2>Articles</h2>
         <ul>
-        {articles.map((article) => (
-        <li key={article.article_id}>
-          <Link to={`/articles/${article.article_id}`}>
-            <h3>{article.title}</h3>
-          
-          </Link>
-        </li>
-      ))}
-        </ul>
+            {articles.map((article) => (
+                <li key={article.article_id}>
+                    <Link to={`/articles/${article.article_id}`}>
+                        <h3>{article.title}</h3>
+                    </Link>
+                    <p><strong>Author:</strong> {article.author}</p>
+                    <p><strong>Created:</strong> {new Date(article.created_at).toLocaleDateString()}</p>
+                    <p><strong>Votes:</strong> {article.votes}</p>
+                    <p><strong>Comments:</strong> {article.comment_count}</p>
+                </li>
+                ))}
+            </ul>
     </div>
     )
 }

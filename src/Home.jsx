@@ -13,11 +13,11 @@ function Home(){
                 <img src="https://svgsilh.com/svg/160414.svg" alt="articles" />
             </Link>
         </li>
-        {/* <li>
+        <li>
             <Link to="/login">
                 <img src="" alt="login" />
             </Link>
-        </li> */}
+        </li> 
     </ol>
 </div>
     )

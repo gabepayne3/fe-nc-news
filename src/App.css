@@ -50,9 +50,10 @@
 
 
 h1 {
-  font-family: "starWars";
+  font-family: "Borderlands";
   color: yellow;
-  text-align: center
+  text-align: center;
+  font-size: 4rem;
 }
 
 @font-face {
@@ -62,6 +63,18 @@ h1 {
 
 .header {
   text-align: center;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.vid {
+  width: 60px;
+  height: 60px;
 }
 
 .home-nav {
@@ -70,12 +83,33 @@ h1 {
 
 .navi {
   font-family: "borderlands";
-  color:darkred
+  color:darkred;
+  padding: 20px
 }
 
-a {
-  color: crimson
+.navi a {
+  color: crimson;
+  padding: 20px
 }
-a:hover, a:focus {
+.navi a:hover, .navi a:focus {
   color:maroon
+}
+
+.home-nav img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.home-nav {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 20px 0;
+  gap: 30px; 
 }
