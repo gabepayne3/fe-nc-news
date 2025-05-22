@@ -25,9 +25,9 @@ const VoteButtons = ({ itemId, initialVotes, onVote, onClick }) => {
 
   return (
     <div>
-      <button disabled={hasVoted} onClick={() => onClickHandler(1)}>⬆️</button>
+      <button disabled={hasVoted} onClick={() => onClickHandler(1)}>V</button>
       <span>{votes}</span>
-      <button disabled={hasVoted} onClick={() => onClickHandler(-1)}>⬇️</button>
+      <button disabled={hasVoted} onClick={() => onClickHandler(-1)}>^</button>
       {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
   );

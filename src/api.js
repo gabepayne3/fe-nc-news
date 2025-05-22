@@ -38,3 +38,17 @@ export const voteOnArticle = (article_id, incVotes) => {
       inc_votes: incVotes,
     });
   };
+
+  export const postComment = ({ article_id, body, username }) => {
+    return gabesNewsApi
+      .post(`/articles/${article_id}/comments`, {
+        username,
+        body,
+      })
+      .then((res) => res.data); 
+  };
+
+  export const getUsers = () => {
+    return gabesNewsApi.get("/users")
+      .then((res) => res.data.users); 
+  };
