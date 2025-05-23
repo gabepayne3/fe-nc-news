@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { getArticles } from "./api"; 
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import SorterComp from "./sorterComp";
+import "./App.css";
 
 const Articles = () => {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [searchParams] = useSearchParams();
+
+    const sort_by = searchParams.get("sort_by") || "date";
+    const order = searchParams.get("order") || "desc"
+
 
     useEffect(() => {
-        getArticles()
+        setLoading(true)
+        getArticles({ sort_by, order })
             .then((data) => {
                 setArticles(data);
                 setLoading(false);
@@ -18,13 +26,14 @@ const Articles = () => {
                 setError("Could not load articles");
                 setLoading(false);
             });
-    }, []);
+    }, [sort_by, order]);
 
     if (loading) return <p>Don't Go Anywhere</p>;
     if (error) return <p>{error}</p>;
     return (
-        <div>
+        <div className="articles-container">
         <h2>Articles</h2>
+        <SorterComp />
         <ul>
             {articles.map((article) => (
                 <li key={article.article_id}>
@@ -36,8 +45,8 @@ const Articles = () => {
                     <p><strong>Votes:</strong> {article.votes}</p>
                     <p><strong>Comments:</strong> {article.comment_count}</p>
                 </li>
-                ))}
-            </ul>
+            ))}
+        </ul>
     </div>
     )
 }

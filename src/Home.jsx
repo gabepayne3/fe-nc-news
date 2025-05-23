@@ -10,7 +10,7 @@ function Home(){
         </li>
         <li>
             <Link to="/articles">
-                <img src="https://svgsilh.com/svg/160414.svg" alt="articles" />
+                <img src="https://www.svgrepo.com/show/418372/bulletin-journal-magazine.svg" alt="articles" />
             </Link>
         </li>
         <li>

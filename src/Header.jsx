@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "./NavBar";
 import { useNavigate } from "react-router-dom";
+import './App.css';
 
 function Header({ user, setUser }) {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ function Header({ user, setUser }) {
         )}
       </div>
       </div>
-      
+      {/* <video className="vid" src="/pandora.webm" controls></video> */}
     </div>
   );
 }

@@ -4,11 +4,16 @@ const gabesNewsApi = axios.create({
     baseURL: "https://be-nc-news-example-46vu.onrender.com/api"
 })
 
-export const getArticles = () => {
-    return gabesNewsApi.get("/articles").then((res)=>{
-        return res.data.articles;
-    })
-}
+export const getArticles = ({ sort_by = "date", order = "desc", topic } = {}) => {
+    const sortFieldMap = { date: "created_at", votes: "votes", comment_count: "comment_count" };
+      const params = { sort_by: sortFieldMap[sort_by] || "created_at", order };
+    if (topic) {
+      params.topic = topic;
+    }
+    return gabesNewsApi
+      .get("/articles", { params })
+      .then((res) => res.data.articles);
+  };
 
 export const getTopics = () => {
     return gabesNewsApi.get("/topics").then((res)=>{
