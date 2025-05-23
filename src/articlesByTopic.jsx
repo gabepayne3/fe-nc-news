@@ -32,7 +32,6 @@ function TopicArticles() {
             <Link to={`/articles/${article.article_id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
               <div className="article-card">
                 <h3>{article.title}</h3>
-                {/* <p>{article.body.slice(0, 150)}...</p> */}
               </div>
             </Link>
           </li>
