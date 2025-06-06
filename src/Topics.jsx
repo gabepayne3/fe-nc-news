@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getTopics } from "./api";
 import { Link } from "react-router-dom";
+import "./App.css"
 
 function Topics() {
   const [topics, setTopics] = useState([]);
@@ -23,12 +24,12 @@ function Topics() {
   if (error) return <p>{error}</p>;
 
   return (
-    <div>
+    <div className="topics-container">
       <h2>Topics</h2>
-      <ul>
+      <ul className="topics-list">
         {topics.map(topic => (
           <li key={topic.slug}>
-            <h3>
+            <h3 className="topic-title">
               <Link to={`/topics/${topic.slug}`}>{topic.slug}</Link>
             </h3>
             <p>{topic.description}</p>

@@ -28,7 +28,8 @@ function Header({ user, setUser }) {
         )}
       </div>
       </div>
-      {/* <video className="vid" src="/pandora.webm" controls></video> */}
+      {/* <video className="background-video" src="/stars.webm" autoPlay loop muted playsInline></video> */}
+      <image className="background-image" src="./public/Mustafar.gif" alt="Background" />
     </div>
   );
 }

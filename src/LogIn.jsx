@@ -37,7 +37,7 @@ function LogIn({ setUser }) {
   return (
     <div>
       <h2>Log In</h2>
-      <form onSubmit={handleLogin}>
+      <form className="Login" onSubmit={handleLogin}>
         <label htmlFor="user-select">Select a user:</label>
         <select
           id="user-select"

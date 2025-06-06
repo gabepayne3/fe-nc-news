@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const gabesNewsApi = axios.create({
-    baseURL: "https://be-nc-news-example-46vu.onrender.com/api"
+    baseURL: "https://my-personal-project-nh77.onrender.com/api"
 })
 
 export const getArticles = ({ sort_by = "date", order = "desc", topic } = {}) => {
