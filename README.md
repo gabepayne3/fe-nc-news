@@ -2,7 +2,7 @@
 
 This is the front-end React application for **NC News**, built during my time on the Northcoders Full-Stack JavaScript Bootcamp. It interacts with the back-end RESTful API and provides users with a smooth and responsive experience of a news website, allowing them to view, sort, and interact with articles and comments.
 
-🔗 **Live Site:**  ](https://gabes-news-app.netlify.app/) 
+🔗 **Live Site:** (https://gabes-news-app.netlify.app/) 
 🔗 **Back-End Repo:** (https://github.com/gabepayne3/my_personal_project)
 
 ---
